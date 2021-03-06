@@ -1,0 +1,28 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "quizlet clone",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./src/app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjn98/flashcards.git"
+  },
+  "author": "Nathan Cobbett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjn98/flashcards/issues"
+  },
+  "homepage": "https://github.com/cjn98/flashcards#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
