@@ -13,6 +13,7 @@ connection.on('error', () => console.log('db error'))
 // express and middleware setup
 const app = express()
 const appPort = 3000
+app.use(express.json())
 app.use('/user', userRoutes)
 app.use('/cards', cardsRoutes)
 app.listen(appPort)
