@@ -8,13 +8,16 @@ exports.registerUser = async (req, res, next) => {
   const { username, email, password } = req.body
   const errorList = await validateRegisterRequestData(username, email)
   if (errorList.length === 0) {
-    // after validation we know the username is unique, therefore creating a hash from it is safe
+    // the validated username is unique and safe to create a hash with
     const activationToken = crypto.createHash('sha256').update(username).digest('hex')
     const hashedPassword = bcrypt.hashSync(password, 10)
     const user = new User({username, email, password: hashedPassword, activationToken})
-    user.save()
-    sendActivationEmail(email, activationToken)
-    res.status(201).json({message: 'successfully registered user'})
+    user.save().then(() => {
+      sendActivationEmail(email, activationToken)
+      res.status(201).json({message: 'successfully registered user'})
+    }).catch(() => {
+      res.status(500).send()
+    })
   }
   else {
     res.status(400).json({errorList: errorList})
@@ -28,9 +31,13 @@ exports.activateUser = async (req, res, next) => {
       const [ activatedUser ] = user
       activatedUser.activationToken = null
       activatedUser.save()
+      res.status(200).send()
+    }
+    else {
+      res.status(400).json({message: 'invalid activation token'})
     }
   })
-  res.status(200).send()
+  
 }
 
 exports.loginUser = async (req, res, next) => {
@@ -41,7 +48,7 @@ exports.loginUser = async (req, res, next) => {
     res.status(200).json(userObj)
   }
   else {
-    res.status(400).send()
+    res.status(400).json({errorList: errorList})
   }
 }
 

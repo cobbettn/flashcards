@@ -1,15 +1,47 @@
+const Cards = require('../models/Cards')
+
 exports.createCards = (req, res, next) => {
-  res.send('createCards')
+  const { name, userId, cardList } = req.body
+  const cards  = new Cards({name, userId, cardList})
+  cards.save().then(() => {
+    res.status(201).send()
+  }).catch((err) => {
+    res.status(500).json({error: err})
+  })
 }
 
 exports.getCards = (req, res, next) => {
-  res.send('getCards')
+  const { id } = req.params
+  Cards.findById(id).then((cards) => {
+    res.status(200).json({cards: cards})
+  }).catch((err) =>{
+    res.status(500).json({error: err})
+  })
 }
 
 exports.updateCards = (req, res, next) => {
-  res.send('updateCards')
+  const { id } = req.params
+  const { name, userId, cardList } = req.body
+
+  Cards.findById(id).then((cards) => {
+    cards.name = name
+    cards.userId = userId
+    cards.cardList = cardList
+    cards.save().then(() => {
+      res.status(200).send()
+    }).catch((err) => {
+      res.status(500).json({error: err})
+    })
+  }).catch((err) =>{
+    res.status(500).json({error: err})
+  })
 }
 
 exports.deleteCards = (req, res, next) => {
-  res.send('deleteCards')
+  const { id } = req.params
+  Cards.deleteOne({_id: id}).then(() => {
+    res.status(200).send()
+  }).catch((err) => {
+    res.status(500).json({error: err})
+  })
 }

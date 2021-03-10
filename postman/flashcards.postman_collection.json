@@ -12,7 +12,17 @@
 					"name": "register",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"pass\",\r\n    \"email\": \"user@mail.com\"\r\n}"
+						},
 						"url": {
 							"raw": "localhost:3000/user/register",
 							"host": [
@@ -31,7 +41,17 @@
 					"name": "activate",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb\"\r\n}"
+						},
 						"url": {
 							"raw": "localhost:3000/user/activate",
 							"host": [
@@ -47,10 +67,49 @@
 					"response": []
 				},
 				{
-					"name": "login",
+					"name": "login (username)",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"credential\": {\r\n        \"username\": \"user\"\r\n    },\r\n    \"password\": \"pass\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login (email)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"credential\": {\r\n        \"email\": \"user@mail.com\"\r\n    },\r\n    \"password\": \"pass\"\r\n}"
+						},
 						"url": {
 							"raw": "localhost:3000/user/login",
 							"host": [
@@ -74,7 +133,22 @@
 					"name": "create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"card set 1\",\r\n    \"userId\": \"6047efaab3fe080cb6825f59\",\r\n    \"cardList\": [\r\n        {\r\n            \"front\": \"1 + 1 = ?\",\r\n            \"back\": \"2\"\r\n        },\r\n        {\r\n            \"front\": \"9 X 9 = ?\",\r\n            \"back\": \"81\"\r\n        }\r\n    ]\r\n}"
+						},
 						"url": {
 							"raw": "localhost:3000/cards",
 							"host": [
@@ -90,17 +164,36 @@
 				},
 				{
 					"name": "read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:3000/cards",
+							"raw": "localhost:3000/cards/6049296c77693c02e7dcc044",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"cards"
+								"cards",
+								"6049296c77693c02e7dcc044"
 							]
 						}
 					},
@@ -110,16 +203,36 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"card set 1 (updated)\",\r\n    \"userId\": \"6047efaab3fe080cb6825f59\",\r\n    \"cardList\": [\r\n        {\r\n            \"front\": \"1 + 9 = ?\",\r\n            \"back\": \"10\"\r\n        },\r\n        {\r\n            \"front\": \"9 X 0 = ?\",\r\n            \"back\": \"0\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:3000/cards/1",
+							"raw": "localhost:3000/cards/6049296c77693c02e7dcc044",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"cards",
-								"1"
+								"6049296c77693c02e7dcc044"
 							]
 						}
 					},
@@ -129,16 +242,22 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:3000/cards/1",
+							"raw": "localhost:3000/cards/6049296c77693c02e7dcc044",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"cards",
-								"1"
+								"6049296c77693c02e7dcc044"
 							]
 						}
 					},
