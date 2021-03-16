@@ -45,3 +45,12 @@ exports.deleteCards = (req, res, next) => {
     res.status(500).json({error: err})
   })
 }
+
+exports.getUserCards = (req, res, next) => {
+  const { userId } = req.body
+  Cards.find({userId: userId}).then((cards) => {
+    res.status(200).json({cards: cards})
+  }).catch((err) => {
+    res.status(400).json({error: err})
+  })
+}

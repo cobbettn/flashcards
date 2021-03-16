@@ -41,7 +41,7 @@ exports.activateUser = async (req, res, next) => {
 }
 
 exports.loginUser = async (req, res, next) => {
-  const {user, errorList } = await loginWithCredentials(req)
+  const { user, errorList } = await loginWithCredentials(req)
   if (errorList.length === 0) {
     const userObj = user.toObject()
     userObj.token = auth.createToken(userObj)
