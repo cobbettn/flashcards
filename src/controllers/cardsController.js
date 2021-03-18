@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson')
 const Cards = require('../models/Cards')
 
 exports.createCards = (req, res, next) => {
@@ -47,8 +48,8 @@ exports.deleteCards = (req, res, next) => {
 }
 
 exports.getUserCards = (req, res, next) => {
-  const { userId } = req.body
-  Cards.find({userId: userId}).then((cards) => {
+  const { id } = req.params
+  Cards.find({userId: ObjectId(id)}).then((cards) => {
     res.status(200).json({cards: cards})
   }).catch((err) => {
     res.status(400).json({error: err})
