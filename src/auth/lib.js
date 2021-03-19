@@ -4,8 +4,9 @@ const secretKey = 'secret key'
 exports.createToken = (user) => jwt.sign({user: user}, secretKey)
 
 exports.verifyToken = (req, res, next) => {
+  const noAuthUrls = ['/user/register', '/user/activate', '/user/login']
   const { url } = req
-  if (url.startsWith('/user')) next() // user routes are unprotected
+  if (noAuthUrls.includes(url)) next()
   else {
     const authHeader = req.headers['authorization']
     if (authHeader) {
