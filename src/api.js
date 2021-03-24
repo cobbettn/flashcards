@@ -12,12 +12,12 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 const connection = mongoose.connection
 connection.on('error', () => console.log('db error'))
 
-// express and middleware setup
+// express and middleware setup (order matters)
 const app = express()
 const appPort = 3000
-app.all('*', auth.verifyToken)
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
+app.all('*', auth.verifyToken)
 app.use('/user', userRoutes)
 app.use('/cards', cardsRoutes)
 app.listen(appPort)

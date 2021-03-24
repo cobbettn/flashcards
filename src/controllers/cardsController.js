@@ -2,8 +2,8 @@ const { ObjectId } = require('bson')
 const Cards = require('../models/Cards')
 
 exports.createCards = (req, res, next) => {
-  const { name, userId, cardList } = req.body
-  const cards  = new Cards({name, userId, cardList})
+  const { name, userId, cardList, description } = req.body
+  const cards = new Cards({name, userId, cardList, description})
   cards.save().then(() => {
     res.status(201).send()
   }).catch((err) => {
@@ -22,12 +22,12 @@ exports.getCards = (req, res, next) => {
 
 exports.updateCards = (req, res, next) => {
   const { id } = req.params
-  const { name, userId, cardList } = req.body
-
+  const { name, userId, cardList, description } = req.body
   Cards.findById(id).then((cards) => {
     cards.name = name
     cards.userId = userId
     cards.cardList = cardList
+    cards.description = description
     cards.save().then(() => {
       res.status(200).send()
     }).catch((err) => {
