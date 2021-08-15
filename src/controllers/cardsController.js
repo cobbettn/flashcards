@@ -4,8 +4,8 @@ const Cards = require('../models/Cards')
 exports.createCards = (req, res, next) => {
   const { name, userId, cardList, description } = req.body
   const cards = new Cards({name, userId, cardList, description})
-  cards.save().then(() => {
-    res.status(201).send()
+  cards.save().then((card) => {
+    res.status(201).json(card)
   }).catch((err) => {
     res.status(500).json({error: err})
   })
