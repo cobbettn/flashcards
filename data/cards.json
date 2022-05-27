@@ -128,7 +128,7 @@
       "back": "the current object the code is being written inside"
     }
   ],
-  "name": "js",
+  "name": "javascript",
   "userId": {
     "$oid": "6047efaab3fe080cb6825f59"
   },
@@ -191,110 +191,8 @@
   "userId": {
     "$oid": "6047efaab3fe080cb6825f59"
   },
-  "__v": 13
-},{
-  "_id": {
-    "$oid": "605e1c39455fda00b4077407"
-  },
-  "cardList": [
-    {
-      "front": "what does HTML stand for?",
-      "back": "HyperText Markup Language"
-    },
-    {
-      "front": "HTML is a programming language true or false?",
-      "back": "false, it is just presentational. There is not logic or control structures"
-    },
-    {
-      "front": "what is html used for?",
-      "back": "to define the structure of the webpage"
-    },
-    {
-      "front": "what are the building blocks of html?",
-      "back": "tags (div, p, a, form, etc.)"
-    },
-    {
-      "front": "what goes between html tags? ",
-      "back": "content"
-    },
-    {
-      "front": "what is the outermost tag of a web page",
-      "back": "<html> tag"
-    },
-    {
-      "front": "what does the <!DOCTYPE> tag do? Is it an html tag?",
-      "back": "tells the browser what version of html the document is (html, html5, xhtml)\n\nDoctype is not html"
-    },
-    {
-      "front": "most of the time there are 2 children of an html tag, what tags are they?",
-      "back": "head and body are the most common child tags of the html tag"
-    },
-    {
-      "front": "what is the <head> tag used for?",
-      "back": "The head of an HTML document is the part that is not displayed in the web browser when the page is loaded. It contains information such as the page <title>, links to CSS and JS, links to custom favicons, and other metadata (data about the HTML, such as the author, and important keywords that describe the document.)"
-    },
-    {
-      "front": "what is the syntax for html comments?",
-      "back": "<!-- comment -->"
-    },
-    {
-      "front": "all html tags have one of two default dispaly values, what are they?",
-      "back": "block  or inline"
-    },
-    {
-      "front": "fill in the blank: ____ elements do not start a new line and fill in only the necessary space",
-      "back": "inline"
-    },
-    {
-      "front": "fill in the blank: ____ elements start a new line and take the full width available",
-      "back": "block"
-    },
-    {
-      "front": "name some of the more popular semantic html5 tags",
-      "back": "header, footer, section, article, nav, details, aside"
-    },
-    {
-      "front": "when should you load javscript in the <head> tag?",
-      "back": "If the scripts contain some event-triggered functions or library"
-    },
-    {
-      "front": "when should you load javscript in the <body> tag?",
-      "back": " If the script writes the content on the page or is not inside a function then it should be placed inside the body section at the bottom"
-    },
-    {
-      "front": "What is the difference between “display: none” and “visibility: hidden”",
-      "back": "hen we use the attribute “visibility:hidden” for an HTML element then that element will be hidden from the webpage but still takes up space. Whereas, if we use the “display: none” attribute for an HTML element then the element will be hidden, and also it won’t take up any space on the webpage."
-    },
-    {
-      "front": "how does whitespace work in html tag content",
-      "back": "No matter how much whitespace you use inside HTML element content (which can include one or more space character, but also line breaks), the HTML parser reduces each sequence of whitespace to a single space when rendering the code"
-    },
-    {
-      "front": "how would you specify an html documents character encoding as utf-8?",
-      "back": "<meta charset=\"utf-8\">"
-    },
-    {
-      "front": "what are the 2 most common attributes of <meta> tags?",
-      "back": "name, which specifies what type of information the tag contains\ncontenet, which contains the actual information"
-    },
-    {
-      "front": "Ideally, what is the max number of h1 elements to use on a page",
-      "back": "just one"
-    },
-    {
-      "front": "what is an absolute URL",
-      "back": "Points to a location defined by its absolute location on the web, including protocol and domain name."
-    },
-    {
-      "front": "what is an relative URL",
-      "back": "Points to a location that is relative to the file you are linking from\n\nA relative URL will point to different places depending on the actual location of the file you refer from"
-    }
-  ],
-  "name": "html",
-  "userId": {
-    "$oid": "6047efaab3fe080cb6825f59"
-  },
-  "__v": 12
+  "__v": 13,
+  "description": "catch all for web related cards"
 },{
   "_id": {
     "$oid": "605e2757455fda00b4077408"
@@ -512,12 +410,164 @@
   "__v": 33
 },{
   "_id": {
-    "$oid": "6075ad67826ca206cedaa6e9"
+    "$oid": "605e1c39455fda00b4077407"
   },
-  "cardList": [],
-  "name": "agile",
+  "cardList": [
+    {
+      "front": "what does HTML stand for?",
+      "back": "HyperText Markup Language"
+    },
+    {
+      "front": "HTML is a programming language true or false?",
+      "back": "false, it is just presentational. There is not logic or control structures"
+    },
+    {
+      "front": "what is html used for?",
+      "back": "to define the structure of the webpage"
+    },
+    {
+      "front": "what are the building blocks of html?",
+      "back": "tags (div, p, a, form, etc.)"
+    },
+    {
+      "front": "what goes between html tags? ",
+      "back": "content"
+    },
+    {
+      "front": "what is the outermost tag of a web page",
+      "back": "<html> tag"
+    },
+    {
+      "front": "what does the <!DOCTYPE> tag do? Is it an html tag?",
+      "back": "tells the browser what version of html the document is (html, html5, xhtml)\n\nDoctype is not html"
+    },
+    {
+      "front": "most of the time there are 2 children of an html tag, what tags are they?",
+      "back": "head and body are the most common child tags of the html tag"
+    },
+    {
+      "front": "what is the <head> tag used for?",
+      "back": "The head of an HTML document is the part that is not displayed in the web browser when the page is loaded. It contains information such as the page <title>, links to CSS and JS, links to custom favicons, and other metadata (data about the HTML, such as the author, and important keywords that describe the document.)"
+    },
+    {
+      "front": "what is the syntax for html comments?",
+      "back": "<!-- comment -->"
+    },
+    {
+      "front": "all html tags have one of two default dispaly values, what are they?",
+      "back": "block  or inline"
+    },
+    {
+      "front": "fill in the blank: ____ elements do not start a new line and fill in only the necessary space",
+      "back": "inline"
+    },
+    {
+      "front": "fill in the blank: ____ elements start a new line and take the full width available",
+      "back": "block"
+    },
+    {
+      "front": "name some of the more popular semantic html5 tags",
+      "back": "header, footer, section, article, nav, details, aside"
+    },
+    {
+      "front": "when should you load javscript in the <head> tag?",
+      "back": "If the scripts contain some event-triggered functions or library"
+    },
+    {
+      "front": "when should you load javscript in the <body> tag?",
+      "back": " If the script writes the content on the page or is not inside a function then it should be placed inside the body section at the bottom"
+    },
+    {
+      "front": "What is the difference between “display: none” and “visibility: hidden”",
+      "back": "hen we use the attribute “visibility:hidden” for an HTML element then that element will be hidden from the webpage but still takes up space. Whereas, if we use the “display: none” attribute for an HTML element then the element will be hidden, and also it won’t take up any space on the webpage."
+    },
+    {
+      "front": "how does whitespace work in html tag content",
+      "back": "No matter how much whitespace you use inside HTML element content (which can include one or more space character, but also line breaks), the HTML parser reduces each sequence of whitespace to a single space when rendering the code"
+    },
+    {
+      "front": "how would you specify an html documents character encoding as utf-8?",
+      "back": "<meta charset=\"utf-8\">"
+    },
+    {
+      "front": "what are the 2 most common attributes of <meta> tags?",
+      "back": "name, which specifies what type of information the tag contains\ncontenet, which contains the actual information"
+    },
+    {
+      "front": "Ideally, what is the max number of h1 elements to use on a page",
+      "back": "just one"
+    },
+    {
+      "front": "what is an absolute URL",
+      "back": "Points to a location defined by its absolute location on the web, including protocol and domain name."
+    },
+    {
+      "front": "what is an relative URL",
+      "back": "Points to a location that is relative to the file you are linking from\n\nA relative URL will point to different places depending on the actual location of the file you refer from"
+    }
+  ],
+  "name": "html",
   "userId": {
     "$oid": "6047efaab3fe080cb6825f59"
   },
-  "__v": 0
+  "__v": 12
+},{
+  "_id": {
+    "$oid": "6075ad67826ca206cedaa6e9"
+  },
+  "cardList": [
+    {
+      "front": "Turing Machine",
+      "back": "a device that can read and write from a length of tape containing 1s and 0s, a foundational model of computability and computer science"
+    },
+    {
+      "front": "CPU",
+      "back": "Central processing unit, core of modern computer. Silicon chip containing billions of transistors"
+    },
+    {
+      "front": "Transistor",
+      "back": "An on/off switch used to represented a bit in the context of a CPU"
+    },
+    {
+      "front": "Bit",
+      "back": "The smallest unit of information a computer can use, a binary value 0 or 1"
+    },
+    {
+      "front": "Byte",
+      "back": "a unit of digital information consisting of 8 bits, 0-255. The smallest addressable unit of memory in many computer architectures"
+    },
+    {
+      "front": "ASCII",
+      "back": "American Standard Code for Information Interchange, a character encoding. Characters/values correspond to binary values (0000000 Null, 1000001 A)"
+    },
+    {
+      "front": "Binary",
+      "back": "a number system, a system for counting. Base-2 as opposed to Base-10"
+    },
+    {
+      "front": "Hexadecimal format",
+      "back": "a binary format. "
+    }
+  ],
+  "name": "100 cs concepts",
+  "userId": {
+    "$oid": "6047efaab3fe080cb6825f59"
+  },
+  "__v": 10,
+  "description": "https://youtu.be/-uleG_Vecis"
+},{
+  "_id": {
+    "$oid": "62901e753661cb0d5e2fd660"
+  },
+  "cardList": [
+    {
+      "front": "f",
+      "back": "b"
+    }
+  ],
+  "name": "name",
+  "userId": {
+    "$oid": "6047efaab3fe080cb6825f59"
+  },
+  "__v": 2
 }]
