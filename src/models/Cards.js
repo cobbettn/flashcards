@@ -9,4 +9,4 @@ const CardSchema = new Schema({
   userId:       {type: Schema.Types.ObjectId, ref: 'User'},
 })
 
-module.exports = mongoose.model('Cards', CardSchema)
+module.exports = mongoose.model('Cards', CardSchema) // the collection name is capitalized here, but displays as FlashcardDB.cards in the mongo ui

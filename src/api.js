@@ -6,7 +6,7 @@ const cardsRoutes = require('./routes/cards')
 const auth = require('./auth/lib')
 
 // mongo database setup
-const local_db_url = 'mongodb://localhost/Flashcard'
+const local_db_url = 'mongodb://localhost/FlashcardDB'
 const mongoDB = process.env.MONGODB_URI || local_db_url
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 const connection = mongoose.connection
