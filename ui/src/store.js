@@ -7,12 +7,10 @@ export default new Vuex.Store({
     state: {
         user: null,
         cards: [],
-        isDemo: true
     },
     getters: {
         user: state => state.user,
         cards: state => state.cards,
-        isDemo: state => state.isDemo,
     },
     mutations: {
         SET_USER(state, data) {

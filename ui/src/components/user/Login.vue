@@ -37,7 +37,6 @@
 
 <script>
 import { loginUrl, jsonContentHeader } from '../../config/api'
-import user from './user';
 export default {
   name: 'Login',
   data() {
@@ -54,17 +53,8 @@ export default {
       success: null
     }
   },
-  mounted() {
-    this.$store.dispatch('SET_USER', user.data)
-    this.$router.push('/work/flashcards/cards')
-  },
   methods: {
     loginUser() {
-      if (this.$store.getters.isDemo) {
-        this.$store.dispatch('SET_USER', user)
-        this.$router.push('/work/flashcards/cards')
-        return
-      }
       const reqBody = {
         credential: {
           username: this.username
@@ -78,7 +68,7 @@ export default {
       ).then(res => {
         const { data } = res
         this.$store.dispatch('SET_USER', {...data})
-        this.$router.push('/work/flashcards/cards')
+        this.$router.push('/cards')
       })
       .catch(err => {
         const { errorList } = err.response.data

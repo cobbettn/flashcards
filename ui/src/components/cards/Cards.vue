@@ -20,9 +20,8 @@
   </v-container>
 </template>
 <script>
-// import { getUserCardsUrl, jsonContentHeader, getAuthToken } from '../../config/api'
+import { getUserCardsUrl, jsonContentHeader, getAuthToken } from '../../config/api'
 import Deck from './Deck.vue'
-import cards from './cards'
 export default {
   name: 'Cards',
   components: {
@@ -35,28 +34,27 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('SET_CARDS', cards.data.cards);
-    // const { _id, token } = this.$store.getters.user
-    // const userCardsUrl = getUserCardsUrl(_id)
-    // const reqHeaders = {
-    //   headers: {
-    //     ...jsonContentHeader,
-    //     ...getAuthToken(token)
-    //   }
-    // }
-    // this.$http.get(
-    //   userCardsUrl,
-    //   reqHeaders
-    // ).then((res) => {
-    //   const { data } = res
-    //   this.$store.dispatch('SET_CARDS', data.cards)
-    // }).catch((err) => {
-    //   console.log(err)
-    // })
+    const { _id, token } = this.$store.getters.user
+    const userCardsUrl = getUserCardsUrl(_id)
+    const reqHeaders = {
+      headers: {
+        ...jsonContentHeader,
+        ...getAuthToken(token)
+      }
+    }
+    this.$http.get(
+      userCardsUrl,
+      reqHeaders
+    ).then((res) => {
+      const { data } = res
+      this.$store.dispatch('SET_CARDS', data.cards)
+    }).catch((err) => {
+      console.log(err)
+    })
   },
   methods: {
     newCardSet() {
-      this.$router.push('/work/flashcards/cards/create')
+      this.$router.push('/cards/create')
     },
     showDeleteSnackbar(message) {
       this.snackbarDeleteMessage = message

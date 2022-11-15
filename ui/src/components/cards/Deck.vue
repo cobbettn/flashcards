@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     deleteDeck() {
-      if (this.$store.getters.isDemo) return
       const id = this.cardData._id
       const { token } = this.$store.getters.user
       const reqUrl = `${cardsUrl}/${id}`
@@ -76,13 +75,13 @@ export default {
       })
     },
     editDeck() {
-      this.$router.push(`/work/flashcards/cards/${this.cardData._id}/edit`)
+      this.$router.push(`/cards/${this.cardData._id}/edit`)
     },
     showDeleteDialog() {
       this.dialog = true
     },
     studyDeck() {
-      this.$router.push(`/work/flashcards/cards/${this.cardData._id}`)
+      this.$router.push(`/cards/${this.cardData._id}`)
     },
   }
 }

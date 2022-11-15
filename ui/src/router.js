@@ -10,14 +10,14 @@ import CardsEditor from './components/cards/CardEditor'
 
 
 const routes = [
-    { path: '/work/flashcards', component: Home },
-    { path: '/work/flashcards/login', component: Login },
-    { path: '/work/flashcards/register', component: Register },
-    { path: '/work/flashcards/activate/:id', component: Activate },
-    { path: '/work/flashcards/cards', component: Cards },
-    { path: '/work/flashcards/cards/create', component: CardsEditor },
-    { path: '/work/flashcards/cards/:id', component: CardViewer },
-    { path: '/work/flashcards/cards/:id/edit', component: CardsEditor },
+    { path: '/', component: Home },
+    { path: '/login', component: Login },
+    { path: '/register', component: Register },
+    { path: '/activate/:id', component: Activate },
+    { path: '/cards', component: Cards },
+    { path: '/cards/create', component: CardsEditor },
+    { path: '/cards/:id', component: CardViewer },
+    { path: '/cards/:id/edit', component: CardsEditor },
 ]
 
 const router = new VueRouter({

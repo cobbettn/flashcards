@@ -17,7 +17,7 @@ export default {
       )
       .then(() => {
         // TODO: dispaly success message on login
-        this.$router.push("/work/flashcards/login")
+        this.$router.push("/login")
       })
       .catch((e) => {
         console.log("activation error", e)

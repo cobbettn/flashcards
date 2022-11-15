@@ -70,7 +70,6 @@ export default {
       return /.+@.+/.test(email)
     },
     registerUser() {
-      if (this.$store.getters.isDemo) return
       const reqBody = {
         email: this.email,
         username: this.username,

@@ -118,7 +118,6 @@ export default {
       this.deck.cardList.push({front: '', back: ''})
     },
     createDeck(reqBody, reqHeaders) {
-      if (this.$store.getters.isDemo) return
       this.$http.post(
         cardsUrl,
         reqBody,
@@ -155,10 +154,9 @@ export default {
         this.createDeck(reqBody, reqHeaders)
     },
     studyCards() {
-      this.$router.push(`/work/flashcards/cards/${this.deck._id}`)
+      this.$router.replace(`/cards/${this.deck._id}`)
     },
     updateDeck(reqBody, reqHeaders, id) {
-      if (this.$store.getters.isDemo) return
       this.$http.put(
         `${cardsUrl}/${id}`,
         reqBody,

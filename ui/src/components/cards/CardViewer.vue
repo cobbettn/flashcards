@@ -69,7 +69,7 @@ export default {
       this.flip = !this.flip
     },
     editCards() {
-      this.$router.push(`/work/flashcards/cards/${this.deck._id}/edit`)
+      this.$router.replace(`/cards/${this.deck._id}/edit`)
     },
     setAsideCard() {
       this.setAsideCards.push(this.currentCard)
